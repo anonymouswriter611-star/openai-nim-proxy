@@ -27,6 +27,11 @@ const MODEL_MAPPING = {
   'gpt-4-turbo': 'deepseek-ai/deepseek-v4-pro',
   'gpt-4o': 'deepseek-ai/deepseek-v4-flash',
   'claude-3-opus': 'openai/gpt-oss-120b',
+  'Stepfun-3.5': 'stepfun-ai/step-3.5-flash',
+  'qwen3.5': 'qwen/qwen3.5-397b-a17b',
+  'sarvam-ai': 'sarvamai/sarvam-m',
+  'gemma-4': 'google/gemma-4-31b-it',
+  'minimax-m3': 'minimaxai/minimax-m3',
   'claude-3-sonnet': 'mistralai/mistral-small-4-119b-2603',
   'gemini-pro': 'z-ai/glm-5.1' 
 };
