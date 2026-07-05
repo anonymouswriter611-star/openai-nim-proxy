@@ -28,6 +28,7 @@ const MODEL_MAPPING = {
   'gpt-4o': 'deepseek-ai/deepseek-v4-flash',
   'claude-3-opus': 'openai/gpt-oss-120b',
   'Stepfun-3.5': 'stepfun-ai/step-3.5-flash',
+  'glm-5.2': 'z-ai/glm-5.2',
   'qwen3.5': 'qwen/qwen3.5-397b-a17b',
   'sarvam-ai': 'sarvamai/sarvam-m',
   'gemma-4': 'google/gemma-4-31b-it',
