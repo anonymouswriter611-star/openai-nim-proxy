@@ -18,7 +18,7 @@ const NIM_API_KEY = process.env.NIM_API_KEY;
 const SHOW_REASONING = true; // Set to true to show reasoning with <think> tags
 
 // 🔥 THINKING MODE TOGGLE - Enables thinking for specific models that support it
-const ENABLE_THINKING_MODE = false; // Set to true to enable chat_template_kwargs thinking parameter
+const ENABLE_THINKING_MODE = true; // Set to true to enable chat_template_kwargs thinking parameter
 
 // Model mapping (adjust based on available NIM models)
 const MODEL_MAPPING = {
@@ -35,6 +35,10 @@ const MODEL_MAPPING = {
   'minimax-m3': 'minimaxai/minimax-m3',
   'claude-3-sonnet': 'mistralai/mistral-small-4-119b-2603',
   'gemini-pro': 'z-ai/glm-5.3-flash' 
+};
+// Extra Parameter required by specific models
+const MODEL_EXTRA_PARAMS = { 
+  'moonshotai/kimi-k3': { reasoning_effort: 'max' },
 };
 
 // Health check endpoint
@@ -104,7 +108,8 @@ app.post('/v1/chat/completions', async (req, res) => {
       temperature: temperature || 0.6,
       max_tokens: max_tokens || 9024,
       extra_body: ENABLE_THINKING_MODE ? { chat_template_kwargs: { thinking: true } } : undefined,
-      stream: stream || false
+      stream: stream || false,
+      ...MODEL_EXTRA_PARAMS[nimModel] //injection reasoning_effort for kimi-k3 automatically 
     };
     
     // Make request to NVIDIA NIM API
